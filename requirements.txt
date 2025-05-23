@@ -8,3 +8,9 @@ streamlit==1.45.1
 
 GCN 관련 추천 시스템 논문 조사
 https://arxiv.org/abs/1806.01973?utm_source=chatgpt.com
+
+GCN 기술
+https://ysg2997.tistory.com/29
+-GCN 설명 기초 구현 코드
+https://velog.io/@claude_ssim/%EA%B7%B8%EB%9E%98%ED%94%84-%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5-Graph-Convolutional-Network
+-GCN 설명2
