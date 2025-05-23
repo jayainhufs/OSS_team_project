@@ -5,3 +5,6 @@ matplotlib==3.10.1
 tqdm==4.67.1
 requests==2.32.3
 streamlit==1.45.1
+
+GCN 관련 추천 시스템 논문 조사
+https://arxiv.org/abs/1806.01973?utm_source=chatgpt.com
