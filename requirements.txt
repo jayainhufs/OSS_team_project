@@ -5,3 +5,8 @@ matplotlib==3.10.1
 tqdm==4.67.1
 requests==2.32.3
 streamlit==1.45.1
+
+https://ysg2997.tistory.com/29
+-GCN 설명 기초 구현 코드
+https://velog.io/@claude_ssim/%EA%B7%B8%EB%9E%98%ED%94%84-%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5-Graph-Convolutional-Network
+-GCN 설명2
