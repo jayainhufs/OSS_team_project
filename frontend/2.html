@@ -1,1 +1,68 @@
---
+<!-- frontend/2.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>스타일 설문</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-rose-50 to-indigo-100 min-h-screen flex items-center justify-center text-gray-800">
+  <div class="bg-white p-10 rounded-xl shadow-md w-full max-w-md">
+    <h1 class="text-2xl font-bold mb-6 text-center">🧙‍♂️ 마법사의 질문!</h1>
+    <form id="styleForm" class="space-y-5">
+      <div>
+        <label for="gender" class="block font-medium mb-1">성별</label>
+        <select id="gender" class="w-full border rounded px-3 py-2">
+          <option value="남성">남성</option>
+          <option value="여성">여성</option>
+        </select>
+      </div>
+      <div>
+        <label for="age" class="block font-medium mb-1">나이대</label>
+        <select id="age" class="w-full border rounded px-3 py-2">
+          <option value="20대">20대</option>
+          <option value="30대">30대</option>
+          <option value="40대">40대</option>
+          <option value="50대">50대</option>
+        </select>
+      </div>
+      <div>
+        <label for="style" class="block font-medium mb-1">선호 스타일</label>
+        <select id="style" class="w-full border rounded px-3 py-2">
+          <option value="ivy">아이비룩</option>
+          <option value="minimal">미니멀룩</option>
+          <option value="punk">펑크룩</option>
+          <option value="feminine">페미닌룩</option>
+        </select>
+      </div>
+      <div>
+        <label for="occasion" class="block font-medium mb-1">착용 상황</label>
+        <select id="occasion" class="w-full border rounded px-3 py-2">
+          <option value="출근">출근</option>
+          <option value="일상">일상</option>
+        </select>
+      </div>
+      <button
+        type="submit"
+        class="bg-pink-500 hover:bg-pink-600 text-white w-full py-3 rounded-full font-semibold"
+      >
+        🎁 추천 결과 보기
+      </button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("styleForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const gender = document.getElementById("gender").value;
+      const age = document.getElementById("age").value;
+      const style = document.getElementById("style").value;
+      const occasion = document.getElementById("occasion").value;
+
+      const query = `gender=${gender}&age=${age}&style=${style}&occasion=${occasion}`;
+      window.location.href = `3.html?${query}`;
+    });
+  </script>
+</body>
+</html>
