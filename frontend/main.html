@@ -1,3 +1,4 @@
+<!-- frontend/main.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -43,13 +44,16 @@
   </header>
 
   <!-- ✅ 메인 콘텐츠 -->
-  <div class="min-h-screen flex flex-col justify-center items-center px-4 -mt-16">
-    <div class="text-5xl font-bold mb-3">🧙‍♀️ 패션 마법사 등장!</div>
+  <main class="min-h-screen flex flex-col justify-center items-center px-4 -mt-16 text-center">
+    <h1 class="text-5xl font-bold mb-3">🧙‍♀️ 패션 마법사 등장!</h1>
     <p class="text-lg text-gray-700 mb-8">AI 마법이 당신의 옷장을 채워드립니다</p>
-    <button class="bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-full text-xl shadow-lg transition">
+    <a
+      href="2.html"
+      class="bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-full text-xl shadow-lg transition"
+    >
       내 스타일 찾기 💃
-    </button>
-  </div>
+    </a>
+  </main>
 
   <!-- ✅ 떠다니는 이모지 -->
   <div class="fixed bottom-10 right-10 text-5xl emoji-float select-none pointer-events-none">
@@ -60,7 +64,7 @@
   <section id="about" class="mt-32 px-8 text-center">
     <h2 class="text-2xl font-bold mb-4">About</h2>
     <p class="text-gray-600 max-w-xl mx-auto">
-      이 웹사이트는 사용자의 취향과 생활 스타일을 분석하여<br>
+      이 웹사이트는 사용자의 취향과 생활 스타일을 분석하여<br />
       맞춤형 옷 스타일을 추천해주는 AI 기반 플랫폼입니다.
     </p>
   </section>
@@ -69,7 +73,9 @@
   <section id="contact" class="mt-16 px-8 text-center pb-24">
     <h2 class="text-2xl font-bold mb-4">Contact</h2>
     <p class="text-gray-600 mb-4">궁금한 점이나 제안사항이 있다면 이메일로 문의해주세요.</p>
-    <p class="mb-6 text-blue-600 underline"><a href="mailto:fashionwizard@example.com">fashionwizard@example.com</a></p>
+    <p class="mb-6 text-blue-600 underline">
+      <a href="mailto:fashionwizard@example.com">fashionwizard@example.com</a>
+    </p>
     <h3 class="text-xl font-semibold mb-2">개발자</h3>
     <ul class="flex flex-col items-center space-y-1 text-gray-700">
       <li>👩‍💻 장예령</li>
@@ -77,6 +83,5 @@
       <li>👨‍💻 홍성호</li>
     </ul>
   </section>
-
 </body>
 </html>
