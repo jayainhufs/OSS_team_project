@@ -1,13 +1,22 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import os, glob, json, random
 
-app = Flask(__name__, static_url_path='/images', static_folder='static/images')
+# backend/templates 기준으로 자동 인식됨
+app = Flask(
+    __name__,
+    static_url_path="/images",                 # URL 경로
+    static_folder="static/images"              # 실제 경로
+)
 
-DATA_DIR = os.path.join("data")
+DATA_DIR = os.path.join("data")  # backend/data 폴더
 
 @app.route("/")
 def index():
     return "✅ 패션 마법사 서버가 실행 중입니다!"
+
+@app.route("/recommend_page")
+def recommend_page():
+    return render_template("recommend.html")
 
 @app.route("/recommend", methods=["GET"])
 def recommend():
@@ -39,7 +48,7 @@ def recommend():
                     survey["Q3"] == o):
                     matched_files.append(item)
             except Exception as e:
-                print(f"Error loading {path}: {e}")
+                print(f"Error in {path}: {e}")
                 continue
 
     if not matched_files:

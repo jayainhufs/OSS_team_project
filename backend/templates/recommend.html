@@ -1,4 +1,3 @@
-<!-- templates/recommend.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -18,20 +17,20 @@
 </head>
 <body>
     <h1>🧙‍♂️ AI 패션 마법사의 추천 결과</h1>
-    <div id="result"></div>
+    <div id="result">로딩 중...</div>
 
     <script>
-        // 예시 쿼리 (실제 구현 시 query string 동적으로 받아올 수도 있음)
         const query = "gender=남성&age=40대&style=ivy&occasion=일상";
         fetch(`/recommend?${query}`)
             .then(response => response.json())
             .then(data => {
                 const resultDiv = document.getElementById("result");
+                resultDiv.innerHTML = "";
 
                 if (data.recommendations) {
                     data.recommendations.forEach(item => {
                         const img = document.createElement("img");
-                        img.src = `/images/${item.imgName}`;
+                        img.src = item.imageUrl;
 
                         const desc = document.createElement("p");
                         desc.className = "description";
@@ -43,6 +42,9 @@
                 } else {
                     resultDiv.innerText = data.message;
                 }
+            })
+            .catch(error => {
+                document.getElementById("result").innerText = "오류 발생: " + error;
             });
     </script>
 </body>
