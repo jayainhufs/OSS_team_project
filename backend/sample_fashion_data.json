@@ -1,0 +1,47 @@
+[
+    {
+      "item": {
+        "imgName": "M_001.jpg",
+        "era": 2010,
+        "style": "미니멀",
+        "gender": "M",
+        "survey": {
+          "Q3": 1
+        }
+      },
+      "user": {
+        "r_gender": 1,
+        "age": 1
+      }
+    },
+    {
+      "item": {
+        "imgName": "M_002.jpg",
+        "era": 2010,
+        "style": "미니멀",
+        "gender": "M",
+        "survey": {
+          "Q3": 5
+        }
+      },
+      "user": {
+        "r_gender": 1,
+        "age": 1
+      }
+    },
+    {
+      "item": {
+        "imgName": "W_001.jpg",
+        "era": 2010,
+        "style": "펑크",
+        "gender": "W",
+        "survey": {
+          "Q3": 1
+        }
+      },
+      "user": {
+        "r_gender": 2,
+        "age": 2
+      }
+    }
+  ]
