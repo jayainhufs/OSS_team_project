@@ -1,2 +1,54 @@
---
+<!-- frontend/3.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 추천 결과</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-rose-100 to-teal-100 min-h-screen flex flex-col items-center py-10 text-gray-800">
 
+  <h1 class="text-4xl font-bold mb-6">🧙‍♂️ 패션 마법사의 추천서</h1>
+  <p class="text-lg mb-10 text-center">당신의 취향을 분석해 마법처럼 어울리는 스타일을 찾아냈어요!</p>
+
+  <div id="recommendation" class="flex flex-wrap justify-center gap-6 px-4"></div>
+
+  <script>
+    window.onload = async () => {
+      const params = new URLSearchParams(window.location.search);
+      const gender = params.get("gender");
+      const age = params.get("age");
+      const style = params.get("style");
+      const occasion = params.get("occasion");
+
+      const url = `http://127.0.0.1:5000/recommend_api?gender=${gender}&age=${age}&style=${style}&occasion=${occasion}`;
+      try {
+        const response = await fetch(url);
+        const result = await response.json();
+
+        const container = document.getElementById("recommendation");
+
+        if (result.recommendations) {
+          result.recommendations.forEach(item => {
+            const card = document.createElement("div");
+            card.className = "bg-white rounded-xl shadow-md p-6 w-80";
+            card.innerHTML = `
+              <img src="/images/${item.imgName}" alt="${item.style}" class="w-full rounded-md mb-4">
+              <h3 class="text-xl font-semibold mb-2">${item.style} (${item.era}년대)</h3>
+              <p class="text-sm text-gray-600">${item.description}</p>
+            `;
+            container.appendChild(card);
+          });
+        } else {
+          container.innerHTML = "<p class='text-red-500 text-lg'>❌ 추천 결과가 없습니다.</p>";
+        }
+      } catch (error) {
+        console.error("API 요청 실패:", error);
+        document.getElementById("recommendation").innerHTML =
+          "<p class='text-red-500'>서버 요청에 실패했습니다.</p>";
+      }
+    };
+  </script>
+</body>
+</html>

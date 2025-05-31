@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>패션 마법사</title>
+    <style>
+        img {
+            max-width: 300px;
+            border-radius: 10px;
+            margin: 10px;
+        }
+        .description {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧙‍♂️ AI 패션 마법사의 추천 결과</h1>
+    <div id="result">로딩 중...</div>
+
+    <script>
+        const query = "gender=남성&age=40대&style=ivy&occasion=일상";
+        fetch(`/recommend?${query}`)
+            .then(response => response.json())
+            .then(data => {
+                const resultDiv = document.getElementById("result");
+                resultDiv.innerHTML = "";
+
+                if (data.recommendations) {
+                    data.recommendations.forEach(item => {
+                        const img = document.createElement("img");
+                        img.src = item.imageUrl;
+
+                        const desc = document.createElement("p");
+                        desc.className = "description";
+                        desc.innerText = item.description;
+
+                        resultDiv.appendChild(img);
+                        resultDiv.appendChild(desc);
+                    });
+                } else {
+                    resultDiv.innerText = data.message;
+                }
+            })
+            .catch(error => {
+                document.getElementById("result").innerText = "오류 발생: " + error;
+            });
+    </script>
+</body>
+</html>
